@@ -1,28 +1,33 @@
-def emoji(emoji = "🤠", number)
-  emoji * number
+class Movie 
+    def initialize(title, rank = 5)
+        @title = title.capitalize 
+        @rank = rank 
+    end
+
+    def to_s
+        "#{@title} has a rank of #{@rank}"
+    end
+
+    def thumbs_up
+      @rank += 1
+    end
+
+    def thumbs_down
+      @rank -= 1
+    end
 end
 
-def movie_info(title, rank = 5)
-  stars = emoji("⭐️", rank)
-  "#{title.capitalize} has a rank of #{rank}: #{stars}"
-end
 
-puts movie_info("goonies", 10)
-puts movie_info("ghostbusters", 9)
+movie_1 = Movie.new("goonies", 10)
+puts movie_1.to_s
 
-movie_title = "goldfinger"
-movie_rank = 8
-puts movie_info(movie_title)
+movie_2 = Movie.new("ghostbusters", 9)
+puts movie_2.to_s
 
-#methods need prameters and must be defined
-#there are two ways to use methods that we have made
+movie_3 = Movie.new("goldfinger")
+puts movie_3.to_s
 
-#key word prameters 
-#is when a way to make a method that makes you assign variable and value
-#example 
-#  def movie_info(title:, rank:)
-#    stars = "⭐️"
-#    "#{title.capitalize} has a rank of #{rank}: #{stars}"
-#  end
-#
-#  puts movie_info(rank: 10, title: "grinch")
+movie_1.thumbs_up
+puts movie_1.to_s
+movie_2.thumbs_down
+puts movie_2.to_s
