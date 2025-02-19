@@ -20,22 +20,36 @@ class Movie
     end
 end
 
-movie_1 = Movie.new("the matrix")
 
-number_rolled = rand(1..6)
+movie_1 = Movie.new("goonies", 10)
+movie_2 = Movie.new("ghostbusters", 9)
+movie_3 = Movie.new("goldfinger")
 
-#in case conditions REMEMBER to change the when 
+movies = [movie_1, movie_2, movie_3]
+
+puts "\nBefore watching:"
+puts movies 
+puts "\n"
+
+movies.each do |movie|
+
+  number_rolled = rand(1..6)
 
 case number_rolled
-when 1..2 
-  movie_1.thumbs_down
-  puts "#{movie_1.title} got a thumbs down 👎"
-when 3..4
-  puts "#{movie_1.title} got skipped 🤨"
-else
-  movie_1.thumbs_up
-  puts "#{movie_1.title} got a thumbs up 👍"
+  when 1..2 
+    movie.thumbs_down
+    puts "#{movie.title} got a thumbs down 👎"
+  when 3..4
+    puts "#{movie.title} got skipped 🤨"
+  else
+    movie.thumbs_up
+    puts "#{movie.title} got a thumbs up 👍"
+  end
 end
+
+puts "\nAfter watching:"
+puts movies
+
 
 # if number_rolled < 3
 
@@ -51,21 +65,3 @@ end
 
 # end
 
-# movie_1 = Movie.new("goonies", 10)
-# puts movie_1.title
-# movie_1.title = "goonys"
-# puts movie_1.title
-# puts movie_1.rank
-
-# puts movie_1.to_s
-
-# movie_2 = Movie.new("ghostbusters", 9)
-# puts movie_2.to_s
-
-# movie_3 = Movie.new("goldfinger")
-# puts movie_3.to_s
-
-# movie_1.thumbs_up
-# puts movie_1.to_s
-# movie_2.thumbs_down
-# puts movie_2.to_s
