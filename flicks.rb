@@ -20,6 +20,49 @@ class Movie
     end
 end
 
+class Playlist
+  attr_reader :name, :movies
+
+  def initialize(name)
+    @name = name.capitalize
+    @movies = []
+  end
+
+  def add_movie(movie)
+    @movies << movie
+  end
+
+  def roll_die
+    rand(1..6)
+  end
+
+  def play
+    puts "*" * 15
+    puts"#{name}'s playlist"
+
+    puts "\nBefore watching:"
+    puts @movies 
+
+    @movies.each do |movie|
+      number_rolled = rand(1..6)
+
+    case number_rolled = roll_die
+      when 1..2 
+        movie.thumbs_down
+        puts "#{movie.title} got a thumbs down 👎"
+      when 3..4
+        puts "#{movie.title} got skipped 🤨"
+      else
+        movie.thumbs_up
+        puts "#{movie.title} got a thumbs up 👍"
+      end
+    end
+
+    puts "\nAfter watching:"
+    puts @movies
+  end
+end
+
 
 movie_1 = Movie.new("goonies", 10)
 movie_2 = Movie.new("ghostbusters", 9)
@@ -27,28 +70,20 @@ movie_3 = Movie.new("goldfinger")
 
 movies = [movie_1, movie_2, movie_3]
 
-puts "\nBefore watching:"
-puts movies 
-puts "\n"
+playlist_1 = Playlist.new("kermit")
+playlist_1.add_movie(movie_1)
+playlist_1.add_movie(movie_2)
+playlist_1.add_movie(movie_3)
+playlist_1.play
 
-movies.each do |movie|
+playlist_2 = Playlist.new("fozzie")
+playlist_2.add_movie(movie_3)
 
-  number_rolled = rand(1..6)
+movie_4 = Movie.new("gremlins", 7)
 
-case number_rolled
-  when 1..2 
-    movie.thumbs_down
-    puts "#{movie.title} got a thumbs down 👎"
-  when 3..4
-    puts "#{movie.title} got skipped 🤨"
-  else
-    movie.thumbs_up
-    puts "#{movie.title} got a thumbs up 👍"
-  end
-end
+playlist_2.add_movie(movie_4)
+playlist_2.play
 
-puts "\nAfter watching:"
-puts movies
 
 
 # if number_rolled < 3
