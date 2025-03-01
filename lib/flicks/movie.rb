@@ -25,7 +25,7 @@ if __FILE__ == $0
   puts movie
 end
 
-#the class has now its own file. and is passed through using require_reletive"reletive path"
+#the class has now its own file. and is passed through using require_relative"relative path"
 #same with movie and movie.rb file
 #
 #running an example code using an if statment
