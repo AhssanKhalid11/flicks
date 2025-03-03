@@ -1,13 +1,44 @@
-9.times do |episode|
-  puts "starwars: Episode #{episode}. note: it starts from 0"
-end
+#immutable snacks
+Snack = Data.define(:name, :price)
 
-puts "\n"
+snacks = [
+  Snack.new("popcorn", 3),
+  Snack.new("candy", 1),
+  Snack.new("nachos", 4),
+  Snack.new("pretzels", 3),
+]
 
-1.upto(10) do |episodee|
-  puts "starwarz: Episodee #{episodee}. note it stars from the number in before upto to the number is pram"
-end
+#or
 
-puts "\n"
+Snack = Data.define(:name, :price)
 
-1.upto(3) { |example| puts "⭐️🚀: episode #{example} written as a single line" }
+SNACKS [
+  Snack.new("popcorn", 3),
+  Snack.new("candy", 1),
+  Snack.new("nachos", 4),
+  Snack.new("pretzels", 2),
+]
+
+#to make constants capitalize the first letter of snack
+#but contants that are not class names its typical to use all caps SKACKS
+
+# Snack = Struct.new(:name, :price)  #this is how to create a struch must use cap names and prams in hashes
+
+# Snack.new("popcorn", 3)            #this is how to create
+# Snack.new("candy", 1)              #they by defualt has attr_accessor on
+# Snack.new("nachos", 4)
+# s = Snack.new("pretzels", 2)      #they can be assined to a variable
+
+# puts s                            #how to call a struct
+# puts s.name                       #these hashes can be called to return a value
+# puts s.price
+# puts "#{s.name} + #{s.price}"
+# puts s.object_id                  #this is infact the same object
+# puts "\n"
+# s.name = "cookie"
+# s.price = 5
+# puts s
+# puts s.name
+# puts s.price
+# puts "#{s.name} + #{s.price}"
+# puts s.object_id

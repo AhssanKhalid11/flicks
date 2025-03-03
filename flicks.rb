@@ -22,7 +22,6 @@ playlist_2.add_movie(movie_4)
 playlist_2.play
 
 puts "\n"
-puts "new line just to mute and recolour the warning sign"
 puts movies
 
 # if number_rolled < 3
