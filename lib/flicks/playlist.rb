@@ -46,6 +46,7 @@ class Playlist
         end
 
         snack = Snackbar.random_snack
+        movie.add_snack(snack.name, snack.price)
         puts "during #{movie.title}, #{@name} ate #{snack.name} for $#{snack.price}."
       end
     end

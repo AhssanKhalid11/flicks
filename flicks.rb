@@ -19,7 +19,7 @@ playlist_2.add_movie(movie_3)
 movie_4 = Movie.new("gremlins", 7)
 
 playlist_2.add_movie(movie_4)
-playlist_2.play
+playlist_2.play(20)
 
 puts "\n"
 puts movies
