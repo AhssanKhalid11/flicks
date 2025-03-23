@@ -1,5 +1,5 @@
 class Movie
-  attr_reader :rank
+  attr_reader :rank, :snacks_eaten
   attr_accessor :title
 
   def initialize(title, rank = 5)
@@ -13,7 +13,7 @@ class Movie
   end
 
   def to_s
-    "#{@title} has a rank of #{@rank}: #{@snacks_eaten}"
+    "#{@title} has a rank of #{@rank}"
   end
 
   def thumbs_up
@@ -22,6 +22,10 @@ class Movie
 
   def thumbs_down
     @rank -= 1
+  end
+
+  def total_snack_price
+    @snacks_eaten.values.sum
   end
 end
 

@@ -11,7 +11,8 @@ playlist_1 = Playlist.new("kermit")
 playlist_1.add_movie(movie_1)
 playlist_1.add_movie(movie_2)
 playlist_1.add_movie(movie_3)
-playlist_1.play(2)
+playlist_1.play(20)
+playlist_1.print_stats
 
 playlist_2 = Playlist.new("fozzie")
 playlist_2.add_movie(movie_3)
@@ -19,7 +20,8 @@ playlist_2.add_movie(movie_3)
 movie_4 = Movie.new("gremlins", 7)
 
 playlist_2.add_movie(movie_4)
-playlist_2.play(20)
+playlist_2.play(2)
+playlist_2.print_stats
 
 puts "\n"
 puts movies
