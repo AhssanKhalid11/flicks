@@ -4,7 +4,7 @@ class Playlist
   attr_reader :name, :movies
 
   def initialize(name)
-    @name = name.capitalize
+    @name = name
     @movies = []
   end
 
@@ -36,37 +36,36 @@ class Playlist
   end
 
   def play(viewings = 3)
-    puts "*" * 15
-    puts "#{name}'s playlist"
+    puts "*" * 30
+    puts "#{@name}'s playlist:"
 
     puts "\nThe snackbar has:"
     menu_items = Snackbar.menu_items
-
     puts menu_items
 
     puts "\nBefore watching:"
     puts @movies
 
     1.upto(viewings) do |viewing_number|
-      puts "\nViewing #{viewing_number}"
+      puts "\nViewing #{viewing_number}:"
 
       @movies.each do |movie|
-        number_rolled = rand(1..6)
+        number_rolled = roll_die
 
-        case number_rolled = roll_die
+        case number_rolled
         when 1..2
           movie.thumbs_down
-          puts "#{movie.title} got a thumbs down 👎"
+          puts "#{movie.title} got a 👎"
         when 3..4
           puts "#{movie.title} got skipped 🤨"
         else
           movie.thumbs_up
-          puts "#{movie.title} got a thumbs up 👍"
+          puts "#{movie.title} got a 👍"
         end
 
         snack = Snackbar.random_snack
         movie.add_snack(snack.name, snack.price)
-        puts "during #{movie.title}, #{@name} ate #{snack.name} for $#{snack.price}."
+        puts "During #{movie.title}, #{@name} ate #{snack.name} for $#{snack.price}."
       end
     end
 
